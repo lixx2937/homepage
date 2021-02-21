@@ -1,0 +1,27 @@
+<div class="side-menu">
+    <div class="menu-container" [ngClass]="{ 'side-menu-closed': sideMenuClosed }">
+        <div class="profile-image-container">
+            <img class="profile-image" src="../../assets/images/cream.jpg">
+        </div>
+        <div class="nav-links-container">
+            <div *ngFor="let navLink of navLinks" class="nav-link">
+                <a href="{{ navLink.href }}"> {{ navLink.text }}</a>
+            </div>
+        </div>
+    </div>
+    <div class="menu-opener-container">
+        <div class="menu-opener" (click)="menuOpenerClick()"> >>> </div>
+    </div>
+</div>
+
+<div class="icon-menu" [ngClass]="{ 'icon-menu-closed': iconMenuClosed }">
+    <div class="nav-icon-container">
+        <div *ngFor="let navLink of navLinks; index as i" class="nav-icon nav-links"
+            [style.transform] = "calcTranslate(i)">
+            <a href="{{ navLink.href }}"> {{ navLink.icon }} </a>
+        </div>
+    </div>
+    <div class="icon-menu-container">
+        <div class="nav-icon" (click)="iconMenuOpenerClick()">=</div>
+    </div>
+</div>

@@ -1,0 +1,126 @@
+//#region Side Menu - Core
+
+$side-menu-width: 250px;
+
+.side-menu {
+    background: green;
+    height: 100%;
+    display: flex;
+    transition: 0.5s;
+
+    @media only screen and (max-width: 1100px) {
+        display: none;
+    }
+}
+
+.menu-container {
+    background: orange;
+    margin: auto;
+    padding-bottom: 50px;
+    width: $side-menu-width;
+    transition: 0.5s;
+    overflow: hidden;
+    display: grid;
+}
+
+.side-menu-closed {
+    width: 0px;
+}
+
+//#endregion
+
+//#region Side Menu - Upper Section
+
+.profile-image-container {
+    margin: 20px auto;
+    width: $side-menu-width;
+    display: flex;
+}
+
+.profile-image {
+    height: 150px;
+    width: 150px;
+    border-radius: 150px;
+    margin: auto;
+}
+
+//#endregion
+
+//#region Side Menu - Lower Section
+
+.nav-links-container {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin-top: 50px;
+    width: $side-menu-width;
+}
+
+.nav-link {
+    background: tan;
+    padding: 10px;
+}
+
+//#endregion
+
+//#region Side Menu - Opener
+
+.menu-opener-container {
+    background: red;
+    display: flex;
+}
+
+.menu-opener {
+    margin: auto;
+}
+
+//#endregion
+
+//#region Icon Menu - Core
+
+.icon-menu {
+    background: orange;
+    position: fixed;
+    right: 0px;
+    top: 0px;
+    height: 100%;
+    display: flex;
+}
+
+.icon-menu-container {
+    margin: auto;
+    padding: 20px;
+    z-index: 2;
+}
+
+.nav-icon {
+    background: tan;
+    padding: 10px;
+    margin: 10px auto;
+    border-radius: 20px;
+    height: 20px;
+    width: 20px;
+    text-align: center;
+}
+
+//#region Icon Menu - Nav Icon
+
+.nav-icon-container {
+    margin: auto;
+    background: black;
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    top: calc(50% - 12px);
+    right: 26px;
+}
+
+.nav-links {
+    transition: ease 1s;
+    position: absolute;
+    margin: auto;
+    padding: 2px;
+    .icon-menu-closed & {
+        transform: scale(0.1) !important;
+    }
+}
