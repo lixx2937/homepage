@@ -1,11 +1,11 @@
+@import '../app.component.scss';
+
 //#region Side Menu - Core
 
 $side-menu-width: 250px;
 
-.side-menu {
-    background: green;
-    height: 100%;
-    display: flex;
+.side-menu-spacer {
+    width: $side-menu-width;
     transition: 0.5s;
 
     @media only screen and (max-width: 1100px) {
@@ -13,18 +13,42 @@ $side-menu-width: 250px;
     }
 }
 
+.side-menu {
+    background: var(--color1);
+    width: $side-menu-width;
+    height: 100vh;
+    display: flex;
+    transition: 0.5s;
+    position: fixed;
+
+    @media only screen and (max-width: 1100px) {
+        display: none;
+    }
+}
+
 .menu-container {
-    background: orange;
+    background: var(--color1);
     margin: auto;
     padding-bottom: 50px;
-    width: $side-menu-width;
     transition: 0.5s;
     overflow: hidden;
     display: grid;
 }
 
 .side-menu-closed {
-    width: 0px;
+    width: 24px;
+}
+
+@keyframes buttonHover {
+    0% {
+        transform: scale(1.0);
+    }
+    50% {
+        transform: scale(1.25);
+    }
+    100% {
+        transform: scale(1.0);
+    }
 }
 
 //#endregion
@@ -57,8 +81,22 @@ $side-menu-width: 250px;
 }
 
 .nav-link {
-    background: tan;
     padding: 10px;
+    display: flex;
+    margin: auto;
+
+    & mat-icon {
+        color:var(--color2);
+        margin: auto;
+        padding: 0px 10px;
+        margin: auto auto auto 0px;
+    }
+
+    & a, & .toggleDark {
+        text-decoration: none;
+        color: var(--color3);
+        margin: auto;
+    }
 }
 
 //#endregion
@@ -66,35 +104,65 @@ $side-menu-width: 250px;
 //#region Side Menu - Opener
 
 .menu-opener-container {
-    background: red;
+    background-color:rgba(0, 0, 0, 0.5);;
     display: flex;
 }
 
 .menu-opener {
     margin: auto;
+    height: 100%;
+    display: flex;
+
+    & mat-icon {
+        color: var(--color3);
+        margin: auto;
+    }
 }
 
 //#endregion
 
 //#region Icon Menu - Core
 
+$menu-icon-bar-height: 3px;
+$menu-icon-bar-width: 25px;
+$menu-icon-transition: 1s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+$menu-icon-diameter: 6px;
+
 .icon-menu {
-    background: orange;
     position: fixed;
     right: 0px;
     top: 0px;
     height: 100%;
     display: flex;
+    padding-right: 5px;
+
+    @media only screen and (min-width: 1100px) {
+        display: none;
+    }
+}
+
+.nav-icon-button {
+    border: 2px solid var(--color1);
+    border-radius: 30px;
+    background: var(--color3);
+    box-shadow: 0px 5px 5px rgba(0,0,0,0.4);
+    color: var(--color1);
 }
 
 .icon-menu-container {
     margin: auto;
     padding: 20px;
     z-index: 2;
+    height: $menu-icon-diameter;
+    width: $menu-icon-diameter;
+    transition: ease .5s;
+    
+    :not(.icon-menu-closed) &:hover {
+        animation: buttonHover 1s;
+    }
 }
 
 .nav-icon {
-    background: tan;
     padding: 10px;
     margin: 10px auto;
     border-radius: 20px;
@@ -103,11 +171,56 @@ $side-menu-width: 250px;
     text-align: center;
 }
 
+.icon-menu-opener {
+    transition: $menu-icon-transition;
+    position: sticky;
+    height: $menu-icon-bar-height;
+    width: $menu-icon-bar-width;
+    background-color: var(--color1);
+    margin: 2px 0px 0px -10px;
+    border-radius: 5px;
+    
+    &:before {
+        transition: $menu-icon-transition;
+        position: absolute;
+        height: $menu-icon-bar-height;
+        width: $menu-icon-bar-width;
+        background-color: var(--color1);
+        content: "";
+        top: -8px;
+        border-radius: 5px;
+    }
+
+    &:after {
+        transition: $menu-icon-transition;
+        position: absolute;
+        height: $menu-icon-bar-height;
+        width: $menu-icon-bar-width;
+        background-color: var(--color1);
+        content: "";
+        top: 8px;
+        border-radius: 5px;
+    }
+
+    &:not(.icon-menu-closed) {
+        transition: $menu-icon-transition;
+        background: transparent;
+        
+        &:before{
+        transform: rotateZ(45deg) scaleX(1.25) translate(5px, 5px);
+        }
+    
+        &:after{
+        transform: rotateZ(-45deg) scaleX(1.25) translate(5px, -5px);
+        }
+    }
+}
+
 //#region Icon Menu - Nav Icon
 
 .nav-icon-container {
     margin: auto;
-    background: black;
+    background: var(--color1);
     width: 25px;
     height: 25px;
     position: absolute;
@@ -115,12 +228,74 @@ $side-menu-width: 250px;
     right: 26px;
 }
 
-.nav-links {
-    transition: ease 1s;
+.nav-icon-link {
     position: absolute;
+    right: 0px;
     margin: auto;
     padding: 2px;
+    cursor: pointer;
+    z-index: 2;
+    transition: $menu-icon-transition;
+    white-space: nowrap;
+    
     .icon-menu-closed & {
         transform: scale(0.1) !important;
+    }
+
+    &:hover span {
+        right: 30px;
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    &:hover {
+        right: 5px;
+    }
+
+    & a {
+        color: var(--color1);
+        text-decoration: none;
+        display: flex;
+    }
+
+    & mat-icon {
+        height: 16px;
+        width: 16px; 
+        margin: auto;
+        display: block;
+        border-radius: 50%;
+        position: relative;
+        z-index: 2;
+        top: 2px;
+        transition: $menu-icon-transition;
+    }
+    
+    & span {
+        position: absolute;
+        right: 0px;
+        z-index: 1;
+        background: var(--color3);
+        color: var(--color1);
+        padding: 4px 12px;
+        font-size: 10px;
+        font-weight: 500;
+        border-radius: 20px;
+        flex-wrap: nowrap;
+        opacity: 0;
+        pointer-events: none;
+        box-shadow: 0px 10px 10px rgba(0,0,0,0.1);
+        transition: $menu-icon-transition;
+
+        &::before {
+            position: absolute;
+            content: "";
+            height: 11px;
+            width: 11px;
+            background: var(--color3);
+            top: 4px;
+            right: -6px;
+            transform: translateX(-50%) rotate(45deg);
+            transition: $menu-icon-transition;
+        }
     }
 }

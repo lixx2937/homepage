@@ -1,0 +1,65 @@
+<div class="header">
+    <h1> Hello! </h1>
+    <h3> My Name is <span>Andy</span>,</h3>
+    <p>& I'm a Full Stack Software Developer</p>
+</div>
+
+<div class="about-section">
+    <div class="about-header">
+        <mat-icon svgIcon="account-box-outline"></mat-icon>
+        <h2>About Me</h2>
+    </div>
+    <div class="about-header-text">
+        <p> I am developer currently based near Minneapolis, MN</p>
+    </div>
+</div>
+
+<div class="skills-section-container">
+    <h2>Skills / Tools</h2>
+    <div class="section">
+        <div *ngFor="let devSkill of devSkills" class="dev-skill">
+            <h3>{{devSkill.type}}</h3>
+            <div *ngFor="let skill of devSkill.skills" class="skill">
+                {{skill}}
+            </div>
+        </div>
+    </div>
+    <h2>Experience</h2>
+    <div class="section">
+        <div *ngFor="let experience of experiences" class="experience">
+            <div class="experience-title">
+                <h3>{{experience.title}}</h3>
+                <p>{{experience.how}} <a href="{{experience.url}}" target="_blank">{{experience.company}}</a></p>
+            </div>
+            <div class="points">
+                <div *ngFor="let point of experience.points" class="point">
+                    {{point}}
+                </div>
+            </div>
+        </div>
+    </div>
+    <h2>Education</h2>
+    <div class="section">
+        <div *ngFor="let education of educations" class="education">
+            <h3>{{ education.degree }} <span>{{ education.timeFrame }}</span></h3>
+            <p><a href="{{ education.url }}">{{ education.school }}</a> - {{ education.location }}</p>
+        </div>
+    </div>
+    <h2>Languages</h2>
+    <div class="section">
+        <div class="languages">
+            <div *ngFor="let language of languages" class="language">
+                <p class="level">{{language.level}}</p>
+                <div *ngFor="let name of language.names" class="name">
+                    {{ name }}
+                </div>
+            </div>
+        </div>
+    </div>
+    <h2>Also Busy With</h2>
+    <div class="section">
+        <div *ngFor="let hobby of hobbies" class="hobby">
+            {{hobby}}
+        </div>
+    </div>
+</div>
