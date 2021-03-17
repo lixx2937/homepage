@@ -1,4 +1,5 @@
 import { Component } from "@angular/core";
+import { upworkRedirectComponent } from "../redirct/upwork-redirect.component";
 
 @Component({
   selector: "about-component",
@@ -7,6 +8,11 @@ import { Component } from "@angular/core";
 })
 export class AboutComponent {
 
+  public asATexts = [
+    "As a developer, I have always enjoy designing and developing clean, efficient, and user friendly applicaitons/websites.",
+    "As a co-worker, I find that one of the most enjoyable parts of my job is meeting and getting to know my fellow collegues.",
+    "As a person, I seek to continually improve myself, to lift up those around me, and to always look forward to the future."
+  ]
   public devSkills = [
     {
       type: "Frontend Development",
@@ -15,7 +21,8 @@ export class AboutComponent {
         "SCSS",
         "Angular",
         "TypeScript",
-        "Node.js"
+        "Node.js",
+        "SEO"
       ]
     }, {
       type: "Backend Development",
@@ -41,9 +48,9 @@ export class AboutComponent {
       skills: [
         "GitHub",
         "Scrum / Agile",
+        "Atlassian / Jira",
+        "VSCode",
         "Wordpress",
-        "SEO",
-        "Adobe Illustrator",
         "Unix, Windows, Mac"
       ]
     }
@@ -54,7 +61,7 @@ export class AboutComponent {
       title: "Software Developer",
       how: "at",
       company: "Open Systems International",
-      url: "www.google.com",
+      url: "https://www.osii.com/",
       duration: "2018 - Present",
       points: [
         "Work as a full stack software developer",
@@ -72,7 +79,7 @@ export class AboutComponent {
       title: "Freelance Developer",
       how: "via",
       company: "Upwork",
-      url: "www.google.com",
+      url: upworkRedirectComponent.upworkURL,
       duration: "2017 - 2018",
       points: [
         "Worked directly with business owners and entrepreneurs",
@@ -80,6 +87,19 @@ export class AboutComponent {
         "Used Wordpress for a more user friendly UI",
         "Updated search engine optimization (SEO)",
         "Setup DNS, AWS integrations, and email marketing"
+      ]
+    }, {
+      title: "IT Field Technician (Tier 3)",
+      how: "at",
+      company: "University of Minnesota - CSE Department",
+      url: "https://cse.umn.edu/cseit",
+      duration: "2014 - 2017",
+      points: [
+        "Resolve hardware and software issues for the CS Department",
+        "Managed multiple CSE computer labs",
+        "Installed, deployed, and updated CS/CSE computers and servers",
+        "Wrote technical documentation for installations",
+        "Trained over a dozen new employees"
       ]
     }
   ]
@@ -115,7 +135,7 @@ export class AboutComponent {
   ]
 
   public hobbies =[
-    "Playing with baby",
+    "Playing with a toddler",
     "Video Games",
     "Board Games",
     "Basketball"

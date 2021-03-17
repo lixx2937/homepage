@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { MenuComponent } from './menu/menu.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AboutComponent } from './about/about.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -16,10 +17,12 @@ import { AboutComponent } from './about/about.component';
     routingComponents,
   ],
   imports: [
-    BrowserModule,
     AppRoutingModule,
-    MatIconModule,
+    BrowserModule,
+    FormsModule,
     HttpClientModule,
+    MatIconModule,
+    ReactiveFormsModule
   ],
   providers: [MatIconRegistry],
   bootstrap: [AppComponent]

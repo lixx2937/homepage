@@ -4,6 +4,10 @@
 
 $side-menu-width: 250px;
 
+:host {
+    flex: 1;
+}
+
 .side-menu-spacer {
     width: $side-menu-width;
     transition: 0.5s;
@@ -87,15 +91,19 @@ $side-menu-width: 250px;
 
     & mat-icon {
         color:var(--color2);
-        margin: auto;
         padding: 0px 10px;
-        margin: auto auto auto 0px;
+        margin: auto;
     }
 
     & a, & .toggleDark {
         text-decoration: none;
         color: var(--color3);
         margin: auto;
+        display: flex;
+
+        & p {
+            margin: auto;
+        }
     }
 }
 
@@ -135,6 +143,15 @@ $menu-icon-diameter: 6px;
     height: 100%;
     display: flex;
     padding-right: 5px;
+    z-index: 100;
+
+    &.show-tooltips {
+        & span {
+            right: 30px;
+            opacity: 1;
+            pointer-events: auto;
+        }
+    }
 
     @media only screen and (min-width: 1100px) {
         display: none;
@@ -242,17 +259,11 @@ $menu-icon-diameter: 6px;
         transform: scale(0.1) !important;
     }
 
-    &:hover span {
-        right: 30px;
-        opacity: 1;
-        pointer-events: auto;
-    }
-
     &:hover {
         right: 5px;
     }
 
-    & a {
+    & a, & .toggleDark {
         color: var(--color1);
         text-decoration: none;
         display: flex;
@@ -279,23 +290,14 @@ $menu-icon-diameter: 6px;
         padding: 4px 12px;
         font-size: 10px;
         font-weight: 500;
-        border-radius: 20px;
+        border-radius: 10px;
         flex-wrap: nowrap;
         opacity: 0;
         pointer-events: none;
         box-shadow: 0px 10px 10px rgba(0,0,0,0.1);
         transition: $menu-icon-transition;
-
-        &::before {
-            position: absolute;
-            content: "";
-            height: 11px;
-            width: 11px;
-            background: var(--color3);
-            top: 4px;
-            right: -6px;
-            transform: translateX(-50%) rotate(45deg);
-            transition: $menu-icon-transition;
-        }
+        border: 1px solid;
+        display: flex;
+        bottom: 1px;
     }
 }

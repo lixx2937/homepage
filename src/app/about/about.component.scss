@@ -6,7 +6,8 @@ $icon-sixe: 40px;
 
 :host {
     padding: 40px;
-    display: block;
+    display: flex;
+    flex-direction: column;
     color: var(--color1);
 
     @media only screen and (max-width: 550px) {
@@ -67,7 +68,16 @@ mat-icon {
 .about-header-text {
     color: var(--color1);
     & p {
-        margin: auto;
+        margin: 10px auto;
+        display: flex;
+        & span {
+            content: "";
+            color: var(--color4);
+            border: 2px solid var(--color4);
+            margin: 7px 5px auto 5px;
+            font-size: 0px;
+            display: inline-block;
+        }
     }
 }
 
@@ -89,6 +99,10 @@ mat-icon {
     display: flex;
     flex-wrap: wrap;
     padding: 20px 20px 30px 20px;
+
+    @media only screen and (max-width: 550px) {
+        padding: 20px 5px 30px 5px;
+    }
 }
 
 .dev-skill {
@@ -128,9 +142,21 @@ mat-icon {
 .experience-title {
     display: flex;
 
+    & p {
+        padding-left: 5px;
+    }
+
+    & a {
+        text-decoration: none;
+        color: var(--color2);
+    }
+
     @media only screen and (max-width: 550px) {
         width: 100%;
         flex-direction: column;
+        & p {
+            padding-left: 0px;
+        }
     }
 
     & h3, & p{
@@ -140,14 +166,13 @@ mat-icon {
             width: 100%;
         }
     }
+}
 
-    & p {
-        padding-left: 5px;
-    }
-
-    & a {
-        text-decoration: none;
-        color: var(--color2);
+.duration {
+    p {
+        margin: auto;
+        font-size: 13px;
+        font-style: italic;
     }
 }
 
@@ -155,11 +180,16 @@ mat-icon {
     padding: 10px 20px;
     display: flex;
     flex-wrap: wrap;
+
+    @media only screen and (max-width: 550px) {
+        padding: 10px 5px;
+    }
 }
 
 .point {
     width: 50%;
     padding: 10px 0px;
+    display: flex;
 
     @media only screen and (max-width: 900px) {
         width: 100%;
@@ -169,7 +199,7 @@ mat-icon {
         content: "";
         color: var(--color4);
         border: 4px solid var(--color4);
-        margin: auto 5px;
+        margin: 5px 10px auto 5px;
         font-size: 0px;
         display: inline-block;
     }

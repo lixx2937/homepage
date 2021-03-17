@@ -8,15 +8,18 @@
             <div *ngFor="let navLink of navLinks">
                 <div [ngSwitch]="navLink.special" class="nav-link">
                     <ng-container *ngSwitchCase="'toggleDark'">
-                        <div *ngIf="!darkTheme" class="toggleDark" (click)="toggleDark()"> {{ navLink.text }}
+                        <div *ngIf="!darkTheme" class="toggleDark" (click)="toggleDark()">
+                            <p>{{ navLink.text }}</p>
                             <mat-icon *ngIf="!darkTheme" svgIcon="{{ navLink.icon }}"></mat-icon>
                         </div>
-                        <div *ngIf="darkTheme" class="toggleDark" (click)="toggleDark()"> {{ navLink.text2 }}
+                        <div *ngIf="darkTheme" class="toggleDark" (click)="toggleDark()">
+                            <p>{{ navLink.text2 }}</p>
                             <mat-icon *ngIf="darkTheme" svgIcon="{{ navLink.icon2 }}"></mat-icon>
                         </div>
                     </ng-container>
                     <ng-container *ngSwitchDefault>
-                        <a href="{{ navLink.href }}"> {{ navLink.text }}
+                        <a href="{{ navLink.href }}{{darkTheme ? '?theme=dark' : ''}}" target="{{ navLink.tab ? '_blank' : undefined}}">
+                            <p>{{ navLink.text }}</p>
                             <mat-icon svgIcon="{{ navLink.icon }}"></mat-icon>
                         </a>
                     </ng-container>
@@ -34,12 +37,26 @@
 
 <div class="icon-menu" [ngClass]="{ 'icon-menu-closed': iconMenuClosed }">
     <div class="nav-icon-container">
-        <div *ngFor="let navLink of navLinks; index as i" class="nav-icon nav-icon-link nav-icon-button"
-            [style.transform] = "calcTranslate(i)">
-            <a href="{{ navLink.href }}">
-                <span class="icon-tooltip"> {{ navLink.text }} </span>
-                <mat-icon svgIcon="{{ navLink.icon }}"></mat-icon> 
-            </a>
+        <div *ngFor="let navLink of navLinks; index as i">
+            <div [ngSwitch]="navLink.special" class="nav-icon nav-icon-link nav-icon-button"
+                [style.transform] = "calcTranslate(i)">
+                <ng-container *ngSwitchCase="'toggleDark'">
+                    <div *ngIf="!darkTheme" class="toggleDark" (click)="toggleDark()">
+                        <span class="icon-tooltip"> {{ navLink.text }} </span>
+                        <mat-icon svgIcon="{{ navLink.icon }}"></mat-icon> 
+                    </div>
+                    <div *ngIf="darkTheme" class="toggleDark" (click)="toggleDark()">
+                        <span class="icon-tooltip"> {{ navLink.text2 }} </span>
+                        <mat-icon svgIcon="{{ navLink.icon2 }}"></mat-icon> 
+                    </div>
+                </ng-container>
+                <ng-container *ngSwitchDefault>
+                    <a href="{{ navLink.href }}" target="{{ navLink.tab ? '_blank' : undefined}}">
+                        <span class="icon-tooltip"> {{ navLink.text }} </span>
+                        <mat-icon svgIcon="{{ navLink.icon }}"></mat-icon> 
+                    </a>
+                </ng-container>
+            </div>
         </div>
     </div>
     <div class="icon-menu-container nav-icon-button" (click)="iconMenuOpenerClick()">

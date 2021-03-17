@@ -1,67 +1,105 @@
-import { Component, HostListener } from '@angular/core';
+import { Component } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
-  selector: 'menu-component',
-  templateUrl: './menu.component.html',
-  styleUrls: ['./menu.component.scss']
+    selector: 'menu-component',
+    templateUrl: './menu.component.html',
+    styleUrls: ['./menu.component.scss']
 })
 
 export class MenuComponent {
     public sideMenuClosed = false;
     public iconMenuClosed = true;
     public darkTheme = false;
+    public darkThemeKey = 'AndyWebsiteDarkTheme';
+    public iconContainer: any;
 
     public navLinks = [
         {
-            href: "src1",
-            text: "nav link 1",
-            icon: "cast"
-        },
-        {
             href: "/home",
-            text: "About Me",
+            text: "About",
             icon: "account-box-outline"
         },
         {
-            href: "src3",
-            text: "nav link 3",
-            icon: "cast"
+            href: "/contact",
+            text: "Contact",
+            icon: "email-send-outline"
+        },
+        {
+            href: "/upwork",
+            text: "Upwork",
+            icon: "earth",
+            tab: true
         },
         {
             special: 'toggleDark',
             function: "toggleDark()",
-            text: "Go Dark",
+            text: "Dark",
             icon: "sunglasses",
-            text2: "The Light",
+            text2: "Light",
             icon2: "glasses"
         },
         {
-            href: "/contact",
-            text: "Contact Me",
-            icon: "email-send-outline"
-        }
+            href: "/resume",
+            text: "Resume",
+            icon: "newspaper",
+            tab: true
+        },
     ];
 
-    public iconMargin = 36;
+    public iconMargin = 40;
     public halfIconPoint = this.iconMargin * (this.navLinks.length-1) / 2;
 
-    @HostListener('document:mousedown', ['$event'])
-    onGlobalClick(event: any): void {
-        if (event == null || event.srcElement.class === 'icon-menu-opener') {
-            this.iconMenuClosed = true;
-        }
+    constructor(
+        private route: ActivatedRoute,
+        private router: Router
+    ) {
+        const prevStored = window.localStorage.getItem(this.darkThemeKey) === 'dark';
+        this.route.queryParams.subscribe(params => {
+            if (params['theme'] === "dark" || prevStored) {
+                this.toggleDark();
+            }
+            this.router.navigate(
+                [],
+                {
+                    relativeTo: this.route
+                }
+            );
+        });
     }
 
-    constructor() {}
-
-    ngOnInit() {}
+    ngOnInit() {
+        this.iconContainer = document.querySelectorAll("div.icon-menu")[0];
+        this.iconContainer.addEventListener("click", function(e: any) { e.stopPropagation(); }, false);
+        document.body.addEventListener('click', this.checkIfMenuOpen.bind(this));
+        document.addEventListener('scroll', this.checkIfMenuOpen.bind(this));
+        console.log(this.iconContainer);
+    }
 
     public menuOpenerClick() {
         this.sideMenuClosed = !this.sideMenuClosed;
     }
 
     public iconMenuOpenerClick() {
+        console.log('toggled');
         this.iconMenuClosed = !this.iconMenuClosed;
+        console.log(this.iconMenuClosed);
+        
+        setTimeout(() => {
+            if (!this.iconMenuClosed) {
+                setTimeout(function(container: any) {
+                    container.classList.add('show-tooltips')
+                }, 800, this.iconContainer)
+            } else {
+                this.iconContainer.classList.remove('show-tooltips');
+            }
+        }, 0);
+    }
+
+    public checkIfMenuOpen(event: any) {
+        if (!this.iconMenuClosed) {
+            this.iconMenuOpenerClick();
+        }
     }
 
     public calcTranslate(index: number): string {
@@ -72,12 +110,12 @@ export class MenuComponent {
     }
 
     public toggleDark() {
-        console.log('toggle dark');
-        console.log(this.darkTheme);
         if (this.darkTheme) {
             document.documentElement.removeAttribute('theme');
+            window.localStorage.setItem(this.darkThemeKey, 'light');
         } else {
             document.documentElement.setAttribute('theme', 'dark');
+            window.localStorage.setItem(this.darkThemeKey, 'dark');
         }
         this.darkTheme = !this.darkTheme;
     }

@@ -1,19 +1,10 @@
 @import '../app.component.scss';
 
-.homepage {
+:host {
     display: flex;
     background-color: var(--color3);
     height: 100%;
     width: 100%;
     margin: auto;
-    transition: background-color 1s ease-out;
-}
-
-.content {
-    background-color: var(--color3);
-    width: 100%;
-    max-width: 1500px;
-    margin-right: auto;
-    margin-left: auto;
     transition: background-color 1s ease-out;
 }
