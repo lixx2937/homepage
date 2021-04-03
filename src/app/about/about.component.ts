@@ -17,10 +17,10 @@ export class AboutComponent {
     {
       type: "Frontend Development",
       skills: [
-        "JavaScript, CSS, HTML",
-        "SCSS",
-        "Angular",
-        "TypeScript",
+        "Angular / TypeScript / SCSS",
+        "JavaScript",
+        "HTML / CSS ",
+        "Karma Testing",
         "Node.js",
         "SEO"
       ]
@@ -28,30 +28,31 @@ export class AboutComponent {
       type: "Backend Development",
       skills: [
         "Java",
-        "Swagger",
-        "RestAPI",
+        "RestAPIs / JSON",
         "MongoDB",
-        "PHP",
-        "MySQL"
+        "Server-side Paging",
+        "Junit / Jmockit",
+        "Python"
       ]
     }, {
       type: "Pipeline / Testing",
       skills: [
+        "Continuous Integration (CI)",
         "Jenkins",
-        "Robot framework",
-        "Selenium",
-        "Karma",
-        "Junit / Jmockit"
+        "Robot framework / Selenium",
+        "End-to-end / Unit Testing",
+        "Swagger",
+        "JAMA"
       ]
     }, {
-      type: "Other Tools",
+      type: "Other Skills/Tools",
       skills: [
-        "GitHub",
+        "Git/GitHub",
         "Scrum / Agile",
         "Atlassian / Jira",
-        "VSCode",
-        "Wordpress",
-        "Unix, Windows, Mac"
+        "Internationalization",
+        "Mobile-Friendly",
+        "VSCode"
       ]
     }
   ]

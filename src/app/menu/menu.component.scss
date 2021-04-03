@@ -3,6 +3,8 @@
 //#region Side Menu - Core
 
 $side-menu-width: 250px;
+$image-container-width: 225px;
+$image-size: 170px;
 
 :host {
     flex: 1;
@@ -36,7 +38,8 @@ $side-menu-width: 250px;
     padding-bottom: 50px;
     transition: 0.5s;
     overflow: hidden;
-    display: grid;
+    display: flex;
+    flex-direction: column;
 }
 
 .side-menu-closed {
@@ -61,15 +64,16 @@ $side-menu-width: 250px;
 
 .profile-image-container {
     margin: 20px auto;
-    width: $side-menu-width;
+    width: $image-container-width;
     display: flex;
 }
 
 .profile-image {
-    height: 150px;
-    width: 150px;
+    height: $image-size;
+    width: $image-size;
     border-radius: 150px;
     margin: auto;
+    object-fit: cover;
 }
 
 //#endregion
@@ -81,7 +85,7 @@ $side-menu-width: 250px;
     flex-direction: column;
     text-align: center;
     margin-top: 50px;
-    width: $side-menu-width;
+    width: $image-container-width;
 }
 
 .nav-link {
@@ -120,6 +124,7 @@ $side-menu-width: 250px;
     margin: auto;
     height: 100%;
     display: flex;
+    z-index: 1000;
 
     & mat-icon {
         color: var(--color3);

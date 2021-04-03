@@ -2,7 +2,7 @@
 <div class="side-menu" [ngClass]="{ 'side-menu-closed': sideMenuClosed }">
     <div class="menu-container">
         <div class="profile-image-container">
-            <img class="profile-image" src="../../assets/images/cream.jpg">
+            <img class="profile-image" src="../../assets/images/profile.jpg">
         </div>
         <div class="nav-links-container">
             <div *ngFor="let navLink of navLinks">
@@ -18,7 +18,7 @@
                         </div>
                     </ng-container>
                     <ng-container *ngSwitchDefault>
-                        <a href="{{ navLink.href }}{{darkTheme ? '?theme=dark' : ''}}" target="{{ navLink.tab ? '_blank' : undefined}}">
+                        <a href="{{ navLink.href }}{{darkTheme && navLink.keepTheme ? '?theme=dark' : ''}}" target="{{ navLink.tab ? '_blank' : undefined}}">
                             <p>{{ navLink.text }}</p>
                             <mat-icon svgIcon="{{ navLink.icon }}"></mat-icon>
                         </a>
@@ -51,7 +51,7 @@
                     </div>
                 </ng-container>
                 <ng-container *ngSwitchDefault>
-                    <a href="{{ navLink.href }}" target="{{ navLink.tab ? '_blank' : undefined}}">
+                    <a (click)="navigate(navLink.text)" target="{{ navLink.tab ? '_blank' : undefined}}">
                         <span class="icon-tooltip"> {{ navLink.text }} </span>
                         <mat-icon svgIcon="{{ navLink.icon }}"></mat-icon> 
                     </a>

@@ -1,3 +1,4 @@
+import { ThrowStmt } from '@angular/compiler';
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
@@ -16,14 +17,16 @@ export class MenuComponent {
 
     public navLinks = [
         {
-            href: "/home",
+            href: "",
             text: "About",
-            icon: "account-box-outline"
+            icon: "account-box-outline",
+            keepTheme: true
         },
         {
             href: "/contact",
             text: "Contact",
-            icon: "email-send-outline"
+            icon: "email-send-outline",
+            keepTheme: true
         },
         {
             href: "/upwork",
@@ -40,7 +43,7 @@ export class MenuComponent {
             icon2: "glasses"
         },
         {
-            href: "/resume",
+            href: "/assets/resumes/resume_3_21.pdf",
             text: "Resume",
             icon: "newspaper",
             tab: true
@@ -57,7 +60,7 @@ export class MenuComponent {
         const prevStored = window.localStorage.getItem(this.darkThemeKey) === 'dark';
         this.route.queryParams.subscribe(params => {
             if (params['theme'] === "dark" || prevStored) {
-                this.toggleDark();
+                this.toggleDark(true);
             }
             this.router.navigate(
                 [],
@@ -73,7 +76,6 @@ export class MenuComponent {
         this.iconContainer.addEventListener("click", function(e: any) { e.stopPropagation(); }, false);
         document.body.addEventListener('click', this.checkIfMenuOpen.bind(this));
         document.addEventListener('scroll', this.checkIfMenuOpen.bind(this));
-        console.log(this.iconContainer);
     }
 
     public menuOpenerClick() {
@@ -81,9 +83,7 @@ export class MenuComponent {
     }
 
     public iconMenuOpenerClick() {
-        console.log('toggled');
         this.iconMenuClosed = !this.iconMenuClosed;
-        console.log(this.iconMenuClosed);
         
         setTimeout(() => {
             if (!this.iconMenuClosed) {
@@ -109,14 +109,23 @@ export class MenuComponent {
         return translateText;
     }
 
-    public toggleDark() {
-        if (this.darkTheme) {
+    public toggleDark( stayDark?: boolean) {
+        if (this.darkTheme && !stayDark) {
             document.documentElement.removeAttribute('theme');
             window.localStorage.setItem(this.darkThemeKey, 'light');
         } else {
             document.documentElement.setAttribute('theme', 'dark');
             window.localStorage.setItem(this.darkThemeKey, 'dark');
         }
-        this.darkTheme = !this.darkTheme;
+        this.darkTheme = !this.darkTheme || !!stayDark;
+    }
+
+    public navigate(text?: string) {
+        for (const navLink of this.navLinks) {
+            if (navLink.text === text) {
+                const params = this.darkTheme && navLink.keepTheme ? { 'theme': 'dark' } : {};
+                this.router.navigate([navLink.href || ''], { queryParams: params });
+            }
+        }
     }
 }

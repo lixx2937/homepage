@@ -7,9 +7,9 @@ import { upworkRedirectComponent } from './redirct/upwork-redirect.component';
 
 const routes: Routes = [
   { path: 'contact', component: contactComponent},
-  { path: 'home', component: homeComponent},
+  { path: '', component: homeComponent},
   { path: 'upwork', component: upworkRedirectComponent},
-  { path: '',   redirectTo: '/home', pathMatch: 'full' },
+  { path: 'home',   redirectTo: '', pathMatch: 'full' },
   { path: '**', component: notFoundComponent }
 ];
 

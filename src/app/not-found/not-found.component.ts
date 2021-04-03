@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import { MenuComponent } from '../menu/menu.component';
 
 @Component({
     selector: 'not-found',
@@ -7,5 +8,12 @@ import { Component } from '@angular/core';
 })
 
 export class notFoundComponent {
+    @ViewChild(MenuComponent)
+    menu!: MenuComponent;
+
     constructor() { }
+
+    public navigateHome() {
+        this.menu.navigate('About');
+    }
 }

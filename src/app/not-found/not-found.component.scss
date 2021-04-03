@@ -1,0 +1,110 @@
+@import '../app.component.scss';
+
+$icon-sixe: 25px;
+$button-transition: .5s;
+
+.not-found {
+    display: flex;
+    background-color: var(--color3);
+    height: 100%;
+    width: 100%;
+    margin: auto;
+    transition: background-color 1s ease-out;
+}
+
+.content {
+    background-color: var(--color3);
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    transition: background-color 1s ease-out;
+    padding: 40px;
+    display: block;
+    color: var(--color1);
+
+    @media only screen and (max-width: 550px) {
+        padding: 20px;
+    }
+}
+
+mat-icon {
+    height: $icon-sixe;
+    width: $icon-sixe;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+//#region Header
+
+.header {
+    padding-bottom: 50px;
+    color: var(--color1);
+
+    & h1 {
+        font-size: 40px;
+    }
+
+    & h3 {
+        font-size: 30px;
+        font-weight: normal;
+
+        & span {
+            font-weight: bold;
+        }
+    }
+
+    & h3, & p {
+        margin: auto;
+    }
+}
+
+//#endregion
+
+//#region button
+
+button {
+    font-size: 20px;
+    background: none;
+    padding: 10px 20px;
+    margin-top: 10px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+
+    &::before {
+        content: "";
+        height: 57px;
+        width: 0px;
+        background: var(--color1);
+        position: absolute;
+        margin: -10px -20px;
+        z-index: 9;
+        transition: $button-transition;
+    }
+
+    & span {
+        position: absolute;
+        outline: none;
+        border: 2px solid var(--color1);
+        z-index: 10;
+        margin: -10px -20px;
+        padding: 15px 20px;
+        color: var(--color1);
+        transition: $button-transition;
+        width: 129px;
+        display: flex;
+    }
+
+    &:hover {
+        &::before {
+            width: 171px;
+        }
+
+        & span {
+            color: var(--color3);
+        }
+    }
+}
+
+//#endregion
+
