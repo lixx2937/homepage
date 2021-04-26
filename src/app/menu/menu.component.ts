@@ -28,12 +28,12 @@ export class MenuComponent {
             icon: "email-send-outline",
             keepTheme: true
         },
-        {
-            href: "/upwork",
-            text: "Upwork",
-            icon: "earth",
-            tab: true
-        },
+        // {
+        //     href: "/upwork",
+        //     text: "Upwork",
+        //     icon: "earth",
+        //     tab: true
+        // },
         {
             special: 'toggleDark',
             function: "toggleDark()",
