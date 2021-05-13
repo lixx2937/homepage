@@ -59,13 +59,13 @@ export class AboutComponent {
 
   public experiences = [
     {
-      title: "Full Stack Software Developer",
+      title: "Software Engineer",
       how: "at",
       company: "Open Systems International",
       url: "https://www.osii.com/",
       duration: "2018 - Present",
       points: [
-        "Work as a full stack software developer",
+        "Work as a full stack software engineer",
         "Follow Scrum and Agile Methodologies",
         "Design and create responsive frontend components",
         "Create and update restul APIs",
