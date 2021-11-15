@@ -70,7 +70,7 @@ export class AboutComponent {
         "Develop and maintain a wide variety of web components",
         "Code is deployed on to the main Best Buy website",
         "High focus on accessibility",
-        "Perform coding interviews for candidates"
+        "Perform coding interviews for engineers"
       ]
     },
     {
