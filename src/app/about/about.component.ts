@@ -80,16 +80,16 @@ export class AboutComponent {
       url: "https://www.osii.com/",
       duration: "2018 - 2021",
       points: [
-        "Work as a full stack software engineer",
-        "Follow Scrum and Agile Methodologies",
-        "Design and create responsive frontend components",
-        "Create and update restul APIs",
-        "Optimize performance of applications",
-        "Develop unit and end-to-end tests",
+        "Worked as a full stack software engineer",
+        "Followed Scrum and Agile Methodologies",
+        "Designed and created responsive frontend components",
+        "Created and updated restul APIs",
+        "Optimized performance of applications",
+        "Developed unit and end-to-end tests",
         "Implemented server-side paging",
-        "Train new developers",
-        "Activly review pull requests",
-        "Maintain a continuos integration (CI) pipeline"
+        "Trained new developers",
+        "Activly reviewed pull requests",
+        "Maintained a continuos integration (CI) pipeline"
       ]
     }, {
       title: "Freelance Developer",
