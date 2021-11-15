@@ -61,9 +61,24 @@ export class AboutComponent {
     {
       title: "Software Engineer",
       how: "at",
+      company: "Best Buy",
+      url: "https://www.bestbuy.com/",
+      duration: "2021 - Present",
+      points: [
+        "Improve Best Buy development infrastructure",
+        "Researched an implemented continous delivery",
+        "Develop and maintain a wide variety of web components",
+        "Code is deployed on to the main Best Buy website",
+        "High focus on accessibility",
+        "Performed coding interviews for candidates"
+      ]
+    },
+    {
+      title: "Software Engineer",
+      how: "at",
       company: "Open Systems International",
       url: "https://www.osii.com/",
-      duration: "2018 - Present",
+      duration: "2018 - 2021",
       points: [
         "Work as a full stack software engineer",
         "Follow Scrum and Agile Methodologies",
