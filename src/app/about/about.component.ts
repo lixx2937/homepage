@@ -66,11 +66,11 @@ export class AboutComponent {
       duration: "2021 - Present",
       points: [
         "Improve Best Buy development infrastructure",
-        "Researched an implemented continous delivery",
+        "Research and implement continous delivery",
         "Develop and maintain a wide variety of web components",
         "Code is deployed on to the main Best Buy website",
         "High focus on accessibility",
-        "Performed coding interviews for candidates"
+        "Perform coding interviews for candidates"
       ]
     },
     {
