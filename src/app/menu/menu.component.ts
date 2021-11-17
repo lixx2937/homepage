@@ -43,7 +43,7 @@ export class MenuComponent {
             icon2: "glasses"
         },
         {
-            href: "/assets/resumes/resume_11_21.pdf",
+            href: "/assets/resumes/resume.pdf",
             text: "Resume",
             icon: "newspaper",
             tab: true

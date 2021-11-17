@@ -9,7 +9,7 @@ import { upworkRedirectComponent } from "../redirct/upwork-redirect.component";
 export class AboutComponent {
 
   public asATexts = [
-    "As a developer, I have always enjoy designing and developing clean, efficient, and user friendly applicaitons/websites.",
+    "As a engineer, I have always enjoy designing and developing clean, efficient, and user friendly applicaitons/websites.",
     "As a co-worker, I find that one of the most enjoyable parts of my job is meeting and getting to know my fellow collegues.",
     "As a person, I seek to continually improve myself, to lift up those around me, and to always look forward to the future."
   ]
