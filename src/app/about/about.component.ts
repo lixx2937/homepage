@@ -59,18 +59,30 @@ export class AboutComponent {
 
   public experiences = [
     {
+      title: "Software Engineer, Front End",
+      how: "at",
+      company: "Google",
+      url: "https://www.google.com/",
+      duration: "2022 - Present",
+      points: [
+        "Develop and maintain the frontend for Orion Wifi",
+        "Manage deployments to production nodes",
+        "Work with multiple teams on cross team OKRs"
+      ]
+    },
+    {
       title: "Software Engineer",
       how: "at",
       company: "Best Buy",
       url: "https://www.bestbuy.com/",
-      duration: "2021 - Present",
+      duration: "2021 - 2022",
       points: [
-        "Improve Best Buy development infrastructure",
-        "Research and implement continous delivery",
-        "Develop and maintain a wide variety of web components",
-        "Code is deployed on to the main Best Buy website",
-        "High focus on accessibility",
-        "Perform coding interviews for engineers"
+        "Improved Best Buy development infrastructure",
+        "Researched and implemented continous delivery",
+        "Developed and maintained a wide variety of web components",
+        "Coded is deployed on to the main Best Buy website",
+        "Highily focused on accessibility",
+        "Performed coding interviews for engineers"
       ]
     },
     {

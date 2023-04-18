@@ -9,7 +9,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "aws-deploy": "aws s3 sync dist/website/ s3://andy-home-website-3",
-    "b-d": "ng build && aws s3 sync dist/website/ s3://andy-home-website-3"
+    "b-d-aws": "ng build && aws s3 sync dist/website/ s3://andy-home-website-3"
   },
   "private": true,
   "dependencies": {
