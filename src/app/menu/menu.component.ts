@@ -1,4 +1,3 @@
-import { ThrowStmt } from '@angular/compiler';
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
@@ -42,12 +41,12 @@ export class MenuComponent {
             text2: "Light",
             icon2: "glasses"
         },
-        // {
-        //     href: "/assets/resumes/resume.pdf",
-        //     text: "Resume",
-        //     icon: "newspaper",
-        //     tab: true
-        // },
+        {
+            href: "/assets/resumes/resume.pdf",
+            text: "Resume",
+            icon: "newspaper",
+            tab: true
+        },
     ];
 
     public iconMargin = 40;

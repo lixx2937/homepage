@@ -15,7 +15,7 @@
                 <div class="contact-form-header">
                     I’m interested in a wide range of opportunities, especially ambitious or large projects.
                     However, if you have other request or question, please don’t hesitate to send me a message
-                    via this form or through my email address <a href="mailto: lixx2937@umn.edu">lixx2937@umn.edu</a>.
+                    via this form or through my email address <a href="mailto: lixx2937@umn.edu">lixx2937&#64;umn.edu</a>.
                 </div>
                 <form name="form" [formGroup]="form" (ngSubmit)="submitForm()">
                     <div class="field" [ngClass]="{'is-invalid':form.get('name')?.touched && form.get('name')?.invalid}">
@@ -44,7 +44,7 @@
             </div>
             <div class="message-failed" *ngIf="!messageSuccess">
                 <p>Message Failed To Send</p>
-                <p>Sorry for the inconvience, please try sending your message directly to my email: <a href="mailto: lixx2937@umn.edu">lixx2937@umn.edu</a>.</p>
+                <p>Sorry for the inconvience, please try sending your message directly to my email: <a href="mailto: lixx2937@umn.edu">lixx2937&#64;umn.edu</a>.</p>
             </div>
         </div>
         <div class="footer-spacing"></div>

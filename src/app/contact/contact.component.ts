@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import "./../../assets/smtp.js"; //file path may change → 
 declare let Email: any;
 
@@ -19,10 +19,10 @@ export class contactComponent {
 	private pass = "9B8BD69FB45757F9C2E0555F51624C4EB005";
 	private myEmail = 'lixx2937@umn.edu';
 
-	form = new FormGroup({
-		name: new FormControl('', Validators.required),
-		email: new FormControl('', [Validators.required, Validators.email]),
-		message: new FormControl('', Validators.required)
+	form = new UntypedFormGroup({
+		name: new UntypedFormControl('', Validators.required),
+		email: new UntypedFormControl('', [Validators.required, Validators.email]),
+		message: new UntypedFormControl('', Validators.required)
 	})
 
 	constructor() { }
